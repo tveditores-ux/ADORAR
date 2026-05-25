@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ADORAR 2026</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #0a0e17; /* Azul profundo */
+      font-family: 'Inter', sans-serif;
+      color: #ffffff;
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid #c5a059; /* Dorado */
+      padding: 2rem;
+      border-radius: 20px;
+      text-align: center;
+      width: 85%;
+      max-width: 350px;
+      box-shadow: 0 0 30px rgba(197, 160, 89, 0.2);
+    }
+    h1 { font-family: 'Cinzel', serif; color: #c5a059; font-size: 2rem; margin-bottom: 0.5rem; }
+    .timer { display: flex; justify-content: space-around; margin: 2rem 0; }
+    .timer div { font-size: 1.2rem; font-weight: 600; color: #fff; }
+    .timer span { display: block; font-size: 0.7rem; color: #c5a059; text-transform: uppercase; }
+    audio { width: 100%; margin-top: 1rem; filter: invert(1) hue-rotate(180deg); }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>ADORAR 2026</h1>
+    <p>8 al 14 de Junio</p>
+    
+    <div class="timer" id="countdown">
+      <div><span id="days">00</span>d</div>
+      <div><span id="hours">00</span>h</div>
+      <div><span id="mins">00</span>m</div>
+    </div>
+
+    <audio controls>
+      <source src="https://www.dropbox.com/scl/fi/i1hl3orf4a6jemmunbk0k/PlayList-ADORAR-2026.mp3?rlkey=jykmhogngor8m9yqkr9tl47jx&e=1&st=juphysgq&raw=1" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <script>
+    const eventDate = new Date("June 8, 2026 00:00:00").getTime();
+    setInterval(() => {
+      const now = new Date().getTime();
+      const diff = eventDate - now;
+      document.getElementById("days").innerText = Math.floor(diff / (1000 * 60 * 60 * 24));
+      document.getElementById("hours").innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      document.getElementById("mins").innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    }, 1000);
+  </script>
+</body>
+</html>
